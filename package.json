@@ -1,5 +1,5 @@
 {
-  "homepage":"https://Omar0724.github.io/Contact-Manage",
+  "homepage": "https://Omar0724.github.io/Contact-Manage",
   "name": "manage-contact",
   "version": "0.1.0",
   "private": true,
@@ -43,5 +43,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "gh-pages": "^4.0.0"
   }
 }

@@ -17,7 +17,7 @@ const store = createStore(contactReducer);
 const rootElement = document.getElementById("root");
 ReactDOM.render(
   <Provider store={store}>
-    <Router basename="/Contact-Manage">
+    <Router >
       <App />
     </Router>
   </Provider>,
