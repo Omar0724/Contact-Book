@@ -37,7 +37,13 @@ const Home = ({ contacts, deleteContact, searchContact }) => {
             </thead>
             <tbody>
               {contacts.length > 0 ? (
-                contacts.map((contact, id) => (
+                contacts.sort(function (a, b) {
+                  if (a.name < b.name) {
+                    return -1;
+                  } else {
+                    return 1;
+                  };
+                 }).filter((e)=>e.city.toLowerCase().includes(search)).map((contact, id) => (
                   <tr key={id}>
                     <td>{contact.name}</td>
                     <td>{contact.city}</td>
@@ -70,6 +76,10 @@ const Home = ({ contacts, deleteContact, searchContact }) => {
 const mapStateToProps = (state) => ({
   contacts: state,
 });
+
+
+
+
 
 const mapDispatchToProps = (dispatch) => ({
   deleteContact: (id) => {
