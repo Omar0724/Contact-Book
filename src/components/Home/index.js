@@ -1,21 +1,36 @@
 import React from "react";
+import { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Home = ({ contacts, deleteContact }) => {
+const Home = ({ contacts, deleteContact, searchContact }) => {
+  const [search,setsearch] = useState('');
   return (
     <div className="container">
       <div className="row d-flex flex-column">
-        <Link to="/add" className="btn btn-outline-dark my-5 ml-auto ">
+        <Link to="/add" className="btn btn-outline-primary my-5 ml-auto ">
           Add Contact
         </Link>
+        <form className="row">
+          <div className="col">
+            <div className="mb-2">
+              <input type="text" className="form-control" placeholder="search city" onChange={(e)=>setsearch(e.target.value.toLowerCase())} value={search} />
+            </div>
+          </div>
+          <div className="col">
+            <div className="mb-2">
+              <input type="submit" className="btn btn-outline-primary" value="search"  onClick={() => searchContact(search)}/>
+            </div>
+          </div>
+        </form>
+        <div className="col"><button className="btn btn-outline-primary">Tirer</button></div>
         <div className="col-md-10 mx-auto my-4">
           <table className="table table-hover">
-            <thead className="table-header bg-dark text-white">
+            <thead className="table-header bg-primary text-white">
               <tr>
-                
+              
                 <th scope="col">Name</th>
-                <th scope="col">City</th>
+                <th scope="col">city</th>
                 <th scope="col">Phone</th>
                 <th scope="col"></th>
               </tr>
@@ -24,11 +39,11 @@ const Home = ({ contacts, deleteContact }) => {
               {contacts.length > 0 ? (
                 contacts.map((contact, id) => (
                   <tr key={id}>
-                    
                     <td>{contact.name}</td>
                     <td>{contact.city}</td>
                     <td>{contact.phone}</td>
                     <td>
+                      
                       <button
                         type="button"
                         onClick={() => deleteContact(contact.id)}

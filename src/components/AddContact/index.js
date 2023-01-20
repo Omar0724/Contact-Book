@@ -8,8 +8,10 @@ const AddPost = ({ contacts, addContact }) => {
   const [phone, setPhone] = useState("");
 
 
+
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const checkContactPhoneExists = contacts.filter((contact) =>
       contact.phone === phone ? contact : null
     );
@@ -34,7 +36,7 @@ const AddPost = ({ contacts, addContact }) => {
 
   return (
     <div className="container-fluid">
-      <h1 className="text-center text-dark py-3 display-2">Add Post</h1>
+      <h1 className="text-center text-primary py-3 display-2">Add Contact</h1>
       <div className="row">
         <div className="col-md-6 p-5 mx-auto shadow">
           <form onSubmit={handleSubmit}>
@@ -50,8 +52,8 @@ const AddPost = ({ contacts, addContact }) => {
             <div className="form-group">
               <input
                 className="form-control"
-                type="email"
-                placeholder="Email"
+                type="text"
+                placeholder="City"
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
               />
@@ -67,9 +69,9 @@ const AddPost = ({ contacts, addContact }) => {
             </div>
             <div className="form-group">
               <input
-                className="btn btn-block btn-dark"
+                className="btn btn-block btn-primary"
                 type="submit"
-                value="Add Student"
+                value="Add Contact"
               />
             </div>
           </form>
