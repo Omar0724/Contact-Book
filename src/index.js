@@ -17,7 +17,7 @@ const store = createStore(contactReducer);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={store}>
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/Contact-Book">
       <App />
     </BrowserRouter>
   </Provider>,
