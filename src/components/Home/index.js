@@ -3,7 +3,7 @@ import { useState } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
-const Home = ({ contacts, deleteContact, searchContact }) => {
+const Home = ({ contacts, deleteContact }) => {
   const [search,setsearch] = useState('');
   return (
     <div className="container">
