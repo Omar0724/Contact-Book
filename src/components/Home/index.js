@@ -19,11 +19,10 @@ const Home = ({ contacts, deleteContact, searchContact }) => {
           </div>
           <div className="col">
             <div className="mb-2">
-              <input type="submit" className="btn btn-outline-primary" value="search"  onClick={() => searchContact(search)}/>
+             
             </div>
           </div>
         </form>
-        <div className="col"><button className="btn btn-outline-primary">Tirer</button></div>
         <div className="col-md-10 mx-auto my-4">
           <table className="table table-hover">
             <thead className="table-header bg-primary text-white">
@@ -37,13 +36,13 @@ const Home = ({ contacts, deleteContact, searchContact }) => {
             </thead>
             <tbody>
               {contacts.length > 0 ? (
-                contacts.sort(function (a, b) {
+                contacts.sort((function (a, b) {
                   if (a.name < b.name) {
                     return -1;
                   } else {
                     return 1;
                   };
-                 }).filter((e)=>e.city.toLowerCase().includes(search)).map((contact, id) => (
+                 })).filter((e)=>e.city.toLowerCase().includes(search)).map((contact, id) => (
                   <tr key={id}>
                     <td>{contact.name}</td>
                     <td>{contact.city}</td>
